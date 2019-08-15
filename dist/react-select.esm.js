@@ -2525,8 +2525,8 @@ var Select = function (_Component) {
       }
     }
   }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
+    key: 'UNSAFE_componentWillReceiveProps',
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
       var _props = this.props,
           options = _props.options,
           value = _props.value,
@@ -4395,8 +4395,8 @@ var makeAsyncSelect = function makeAsyncSelect(SelectComponent) {
         }
       }
     }, {
-      key: 'componentWillReceiveProps',
-      value: function componentWillReceiveProps(nextProps) {
+      key: 'UNSAFE_componentWillReceiveProps',
+      value: function UNSAFE_componentWillReceiveProps(nextProps) {
         // if the cacheOptions prop changes, clear the cache
         if (nextProps.cacheOptions !== this.props.cacheOptions) {
           this.optionsCache = {};
@@ -4561,8 +4561,8 @@ var makeCreatableSelect = function makeCreatableSelect(SelectComponent) {
     }
 
     createClass(Creatable, [{
-      key: 'componentWillReceiveProps',
-      value: function componentWillReceiveProps(nextProps) {
+      key: 'UNSAFE_componentWillReceiveProps',
+      value: function UNSAFE_componentWillReceiveProps(nextProps) {
         var allowCreateWhileLoading = nextProps.allowCreateWhileLoading,
             createOptionPosition = nextProps.createOptionPosition,
             formatCreateLabel = nextProps.formatCreateLabel,
