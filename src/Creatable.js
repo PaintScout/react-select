@@ -91,7 +91,7 @@ type State = {
 };
 
 export const makeCreatableSelect = (SelectComponent: ComponentType<*>) =>
-  class Creatable extends Component<Props, State> {
+  (class Creatable extends Component<Props, State> {
     static defaultProps = defaultProps;
     select: ElementRef<*>;
     constructor(props: Props) {
@@ -102,7 +102,7 @@ export const makeCreatableSelect = (SelectComponent: ComponentType<*>) =>
         options: options,
       };
     }
-    componentWillReceiveProps(nextProps: Props) {
+    UNSAFE_componentWillReceiveProps(nextProps: Props) {
       const {
         allowCreateWhileLoading,
         createOptionPosition,
@@ -184,7 +184,7 @@ export const makeCreatableSelect = (SelectComponent: ComponentType<*>) =>
         />
       );
     }
-  };
+  });
 
 // TODO: do this in package entrypoint
 export default manageState(makeCreatableSelect(Select));

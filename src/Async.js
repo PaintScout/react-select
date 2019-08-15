@@ -35,7 +35,7 @@ type State = {
 };
 
 export const makeAsyncSelect = (SelectComponent: ComponentType<*>) =>
-  class Async extends Component<Props, State> {
+  (class Async extends Component<Props, State> {
     static defaultProps = defaultProps;
     select: ElementRef<*>;
     lastRequest: {};
@@ -65,7 +65,7 @@ export const makeAsyncSelect = (SelectComponent: ComponentType<*>) =>
         });
       }
     }
-    componentWillReceiveProps(nextProps: Props) {
+    UNSAFE_componentWillReceiveProps(nextProps: Props) {
       // if the cacheOptions prop changes, clear the cache
       if (nextProps.cacheOptions !== this.props.cacheOptions) {
         this.optionsCache = {};
@@ -174,6 +174,6 @@ export const makeAsyncSelect = (SelectComponent: ComponentType<*>) =>
         />
       );
     }
-  };
+  });
 
 export default makeAsyncSelect(manageState(Select));
